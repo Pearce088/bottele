@@ -2,7 +2,6 @@ import telebot
 import time
 import pyshorteners
 import os
-import pywhatkit
 
 bot = telebot.TeleBot(token=os.getenv('TG_BOT_TOKEN'))
 
@@ -15,13 +14,8 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['help'])
 def send_welcome(message):
-    bot.reply_to(message, 'Kirim file dan saya akan mengrimkanmu linknya')    
+    bot.reply_to(message, 'Kirim file dan saya akan mengrimkanmu linknya')
 
-@bot.message_handler(command=['playvid'])
-def send_welcome(message):
-    bo.reply_to(message, 'Sedang Memproses Video Anda')
-    pywhatkit.playonyt("" + message)
-    
 @bot.message_handler(content_types=['photo', 'video', 'audio', 'document'])
 def file_sent(message):
     try:
@@ -36,7 +30,7 @@ def file_sent(message):
                 try:
                     bot.send_message(message.chat.id, short(bot.get_file_url(message.video.file_id)))
                 except AttributeError:
-                    pass 
+                    pass
 
 
 while True:
