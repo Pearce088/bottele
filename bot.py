@@ -17,7 +17,7 @@ def send_welcome(message):
 def send_welcome(message):
     bot.reply_to(message, '- /shortener Untuk merubah file menjadi link.')
 
-@bot.message_handler(commands=['shortener'] && content_types=['photo', 'video', 'audio', 'document'])
+@bot.message_handler(commands=['shortener'], content_types=['photo', 'video', 'audio', 'document'])
 def file_sent(message):
     try:
         bot.send_message(message.chat.id, short(bot.get_file_url(message.document[0].file_id)))
