@@ -15,21 +15,21 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['help'])
 def send_welcome(message):
-    bot.reply_to(message, 'Kirim file dan saya akan mengrimkanmu linknya')
+    bot.reply_to(message, '- /shortener Untuk merubah file menjadi link.')
 
-@bot.message_handler(content_types=['photo', 'video', 'audio', 'document'])
+@bot.message_handler(commands=['shortener'] && content_types=['photo', 'video', 'audio', 'document'])
 def file_sent(message):
     try:
-        bot.send_message(message.chat.id, short(bot.get_file_url(message.document.file_id)))
+        bot.send_message(message.chat.id, short(bot.get_file_url(message.document[0].file_id)))
     except AttributeError:
         try:
             bot.send_message(message.chat.id, short(bot.get_file_url(message.photo[0].file_id)))
         except AttributeError:
             try:
-                bot.send_message(message.chat.id, short(bot.get_file_url(message.audio.file_id)))
+                bot.send_message(message.chat.id, short(bot.get_file_url(message.audio[0].file_id)))
             except AttributeError:
                 try:
-                    bot.send_message(message.chat.id, short(bot.get_file_url(message.video.file_id)))
+                    bot.send_message(message.chat.id, short(bot.get_file_url(message.video[0].file_id)))
                 except AttributeError:
                     pass
 
