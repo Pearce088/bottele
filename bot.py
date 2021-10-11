@@ -11,7 +11,7 @@ def short(url):
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, 'Hai! Kirim file untuk di pendekkan')
+    bot.reply_to(message, 'Hai, Selamat Datang di Bot Asistance Pearce, Gunakan Perintah di bawah untuk menjalakan bot nya.\n- /shortener Untuk merubah file menjadi link.')
 
 @bot.message_handler(commands=['help'])
 def send_welcome(message):
