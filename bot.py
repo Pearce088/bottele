@@ -42,7 +42,7 @@ def help_command(message):
    keyboard = telebot.types.InlineKeyboardMarkup()
    keyboard.add(
        telebot.types.InlineKeyboardButton(
-           ‘Message the developer’, url='telegram.me/artiomtb'
+           'Message the developer', url='telegram.me/aanmhd08'
        )
    )
    bot.send_message(
